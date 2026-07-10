@@ -19,3 +19,45 @@ A **Retrieval-Augmented Generation (RAG)** application that allows users to uplo
 | 🚫 **Hallucination Prevention** | Responds "I don't know" when unsure |
 | 🎯 **Clean UI** | Intuitive and user-friendly interface |
 
+
+---
+
+## 🛠️ Tech Stack
+
+| Component | Technology |
+|-----------|------------|
+| Frontend | Streamlit |
+| Embeddings | Sentence Transformers (all-MiniLM-L6-v2) |
+| Vector DB | ChromaDB |
+| LLM | OpenAI GPT-3.5 Turbo |
+| PDF Processing | PyPDF |
+| Language | Python 3.9+ |
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Python 3.9+
+- OpenAI API Key ([Get it here](https://platform.openai.com/api-keys))
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/poojahiwale1908-creator/Al-powered-Knowledge-Base-Chat.git
+cd Al-powered-Knowledge-Base-Chat
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your OpenAI API key
+
+# Run the application
+streamlit run app.py
