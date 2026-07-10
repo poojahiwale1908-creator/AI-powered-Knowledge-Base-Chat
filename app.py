@@ -1,12 +1,8 @@
 import os
 import streamlit as st
-from dotenv import load_dotenv
 from src.rag_pipeline import RAGPipeline
 
-# Load environment variables
-load_dotenv()
-
-# Page config
+# Set page config
 st.set_page_config(
     page_title="AI Knowledge Base Chat",
     page_icon="📚",
@@ -36,7 +32,17 @@ with st.sidebar:
     if uploaded_files:
         if st.button("📥 Process Documents", use_container_width=True):
             with st.spinner("Processing documents..."):
-                stats = pipeline.add_documents(uploaded_files)
+                # Create file objects (same as Colab)
+                class FileObj:
+                    def __init__(self, name, content):
+                        self.name = name
+                        self.content = content
+                        self.size = len(content)
+                    def getvalue(self):
+                        return self.content
+                
+                file_objects = [FileObj(f.name, f.getvalue()) for f in uploaded_files]
+                stats = pipeline.add_documents(file_objects)
                 st.success(f"✅ Processed {stats['processed']} files, {stats['chunks']} chunks")
     
     st.divider()
@@ -75,6 +81,8 @@ if prompt := st.chat_input("Type your question here..."):
             
             # Show confidence
             if response['confidence'] > 0:
+                from src.utils import get_confidence_color
+                color = get_confidence_color(response['confidence'])
                 st.caption(f"Confidence: {response['confidence']:.1%}")
             
             # Show sources
@@ -85,3 +93,5 @@ if prompt := st.chat_input("Type your question here..."):
         
         # Add assistant message
         st.session_state.messages.append({"role": "assistant", "content": response['answer']})
+
+  
