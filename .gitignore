@@ -1,40 +1,6 @@
-# Python
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
-.Python
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Environment variables
-.env
-.env.local
-.env.*.local
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-
-# Vector Database
 chroma_db/
-*.chroma
-
-# Jupyter Notebooks
-.ipynb_checkpoints/
-*.ipynb
-
-# Logs
-*.log
-*.csv
-
-# OS
-Thumbs.db
-.DS_Store
+.env
+venv/
+.venv/
