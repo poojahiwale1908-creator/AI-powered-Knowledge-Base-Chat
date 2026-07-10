@@ -61,3 +61,24 @@ cp .env.example .env
 
 # Run the application
 streamlit run app.py
+
+
+📖 Usage Guide
+1️⃣ Upload Documents
+Click "Browse files" in the sidebar
+
+Select one or more PDF files
+
+Click "Process Documents"
+
+2️⃣ Ask Questions
+Type your question in the chat input
+
+Press Enter or click Send
+
+View the answer with confidence score and sources
+
+3️⃣ Manage Chat
+Use "Clear Chat" to reset conversation
+
+Use "Clear Documents" to remove all documents
