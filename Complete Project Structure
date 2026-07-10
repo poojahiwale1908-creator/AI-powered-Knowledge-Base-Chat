@@ -1,0 +1,14 @@
+knowledge-base-chat/
+├── app.py
+├── requirements.txt
+├── .env.example
+├── README.md
+├── src/
+│   ├── __init__.py
+│   ├── document_processor.py
+│   ├── embedding.py
+│   ├── vector_store.py
+│   ├── rag_pipeline.py
+│   └── utils.py
+└── tests/
+    └── test_pipeline.py
